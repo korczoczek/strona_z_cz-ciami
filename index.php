@@ -15,7 +15,7 @@
             <table class="table">
                 <tbody>
 <?php
-    $sql = "SELECT zdjecie,nazwa,cena,ilosc,producent FROM magazyn;";
+    $sql = "SELECT * FROM czesci;";
     $result = $mysqli->query($sql);
     while($czesci=$result->fetch_assoc()){
         echo "

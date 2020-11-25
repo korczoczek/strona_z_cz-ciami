@@ -5,12 +5,24 @@
     include('php/database-connect.php');
     include('php/header.php');
 ?>
-<title>tytuł</title>
+<title>Dadawanie Części</title>
 <style></style>
 </head>
 <body>
 <div class="container">
-    <div class="row">
+    <form>
+        <div class="row">
+            <div class="col">
+            <input type="text" class="form-control" placeholder="Nazwa">
+            </div>
+            <div class="col">
+            <input type="text" class="form-control" placeholder="Cena (zł)">
+            </div>
+            <div class="col">
+            <input type="text" class="form-control" placeholder="Ilość">
+            </div>
+        </div>
+    </form>
     </div>
 </div>
 <?php
