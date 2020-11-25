@@ -5,7 +5,7 @@
     include('php/database-connect.php');
     include('php/header.php');
 ?>
-<title>tytuł</title>
+<title>Najlepsze części</title>
 <style></style>
 </head>
 <body>
