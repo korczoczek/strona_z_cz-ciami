@@ -26,37 +26,26 @@ CREATE TABLE IF NOT EXISTS `klienci` (
 /*!40000 ALTER TABLE `klienci` DISABLE KEYS */;
 /*!40000 ALTER TABLE `klienci` ENABLE KEYS */;
 
--- Zrzut struktury tabela czesci.koszyki
-CREATE TABLE IF NOT EXISTS `koszyki` (
-  `id_zamowienia` int(11) NOT NULL,
-  `id_czesci` int(11) NOT NULL,
-  `ilosc` int(11) NOT NULL,
-  KEY `id_zamowienia` (`id_zamowienia`),
-  KEY `id_czesci` (`id_czesci`),
-  CONSTRAINT `koszyki_ibfk_1` FOREIGN KEY (`id_zamowienia`) REFERENCES `zamowienia` (`id`),
-  CONSTRAINT `koszyki_ibfk_2` FOREIGN KEY (`id_czesci`) REFERENCES `magazyn` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- Zrzucanie danych dla tabeli czesci.koszyki: ~0 rows (około)
-/*!40000 ALTER TABLE `koszyki` DISABLE KEYS */;
-/*!40000 ALTER TABLE `koszyki` ENABLE KEYS */;
-
 -- Zrzut struktury tabela czesci.magazyn
 CREATE TABLE IF NOT EXISTS `magazyn` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nazwa` varchar(255) DEFAULT NULL,
+  `nazwa` varchar(255) NOT NULL,
   `cena` float NOT NULL,
   `zdjecie` varchar(255) DEFAULT NULL,
   `opis` varchar(255) DEFAULT NULL,
-  `ilosc` int(11) DEFAULT NULL,
+  `ilosc` int(11) NOT NULL,
   `producent` varchar(50) DEFAULT NULL,
   `kod_producenta` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `magazyn` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 -- Zrzucanie danych dla tabeli czesci.magazyn: ~0 rows (około)
 /*!40000 ALTER TABLE `magazyn` DISABLE KEYS */;
+INSERT INTO `magazyn` (`id`, `nazwa`, `cena`, `zdjecie`, `opis`, `ilosc`, `producent`, `kod_producenta`) VALUES
+	(1, 'Gaźnik', 350, NULL, NULL, 12, 'Yamacha', NULL),
+	(2, 'Blok silnika', 1199, NULL, NULL, 5, 'Tesco', NULL),
+	(3, 'Klamka', 56, NULL, NULL, 10000, 'Toyota', NULL);
 /*!40000 ALTER TABLE `magazyn` ENABLE KEYS */;
 
 -- Zrzut struktury tabela czesci.zamowienia
@@ -72,6 +61,21 @@ CREATE TABLE IF NOT EXISTS `zamowienia` (
 -- Zrzucanie danych dla tabeli czesci.zamowienia: ~0 rows (około)
 /*!40000 ALTER TABLE `zamowienia` DISABLE KEYS */;
 /*!40000 ALTER TABLE `zamowienia` ENABLE KEYS */;
+
+-- Zrzut struktury tabela czesci.koszyki
+CREATE TABLE IF NOT EXISTS `koszyki` (
+  `id_zamowienia` int(11) NOT NULL,
+  `id_czesci` int(11) NOT NULL,
+  `ilosc` int(11) NOT NULL,
+  KEY `id_zamowienia` (`id_zamowienia`),
+  KEY `id_czesci` (`id_czesci`),
+  CONSTRAINT `koszyki_ibfk_1` FOREIGN KEY (`id_zamowienia`) REFERENCES `zamowienia` (`id`),
+  CONSTRAINT `koszyki_ibfk_2` FOREIGN KEY (`id_czesci`) REFERENCES `magazyn` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Zrzucanie danych dla tabeli czesci.koszyki: ~0 rows (około)
+/*!40000 ALTER TABLE `koszyki` DISABLE KEYS */;
+/*!40000 ALTER TABLE `koszyki` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
