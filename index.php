@@ -5,7 +5,7 @@
     include('php/database-connect.php');
     include('php/header.php');
 ?>
-<title>tytuł</title>
+<title>Najlepsze części</title>
 <style></style>
 </head>
 <body>
@@ -15,7 +15,7 @@
             <table class="table">
                 <tbody>
 <?php
-    $sql = "SELECT zdjecie,nazwa,cena,ilosc,producent FROM magazyn;";
+    $sql = "SELECT * FROM czesci ORDER BY id;";
     $result = $mysqli->query($sql);
     while($czesci=$result->fetch_assoc()){
         echo "
@@ -25,6 +25,7 @@
         <td>".$czesci['cena']." zł</td>
         <td>".$czesci['ilosc']."</td>
         <td>".$czesci['producent']."</td>
+        <td>".$czesci['model']."</td>
         </tr>
         ";
     }
