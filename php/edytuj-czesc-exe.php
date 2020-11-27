@@ -3,12 +3,13 @@ if(isset($_POST['nazwa'])){
     $post = $_POST;
 
     if(!empty($post['nazwa'])){
+        $post['id'] =  $mysqli->real_escape_string($post['id']);
         $post['nazwa'] = $mysqli->real_escape_string($post['nazwa']);
         $post['cena'] = $mysqli->real_escape_string($post['cena']);
         $post['ilosc'] = $mysqli->real_escape_string($post['ilosc']);
         $post['opis'] = $mysqli->real_escape_string($post['opis']);
         $post['producent'] = $mysqli->real_escape_string($post['producent']);
-        $post['model'] = $mysqli->real_escape_string($post['model']);
+        $post['kodProducenta'] = $mysqli->real_escape_string($post['kodProducenta']);
         
         //TODO dodawanie zdjęcia
         //zapis pliki do dysku, konwersja na JPG,tworzenie miniatury,
@@ -22,7 +23,7 @@ if(isset($_POST['nazwa'])){
             '".$post['opis']."',
             ".$post['ilosc'].",
             '".$post['producent']."',
-            '".$post['model']."');";
+            '".$post['kodProducenta']."');";
         $result=$mysqli->real_query($sql);
 
         if($result){

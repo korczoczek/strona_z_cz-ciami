@@ -15,7 +15,7 @@
             <table class="table">
                 <tbody>
 <?php
-    $sql = "SELECT * FROM czesci;";
+    $sql = "SELECT * FROM czesci ORDER BY id;";
     $result = $mysqli->query($sql);
     while($czesci=$result->fetch_assoc()){
         echo "
@@ -25,6 +25,7 @@
         <td>".$czesci['cena']." zł</td>
         <td>".$czesci['ilosc']."</td>
         <td>".$czesci['producent']."</td>
+        <td>".$czesci['model']."</td>
         </tr>
         ";
     }
