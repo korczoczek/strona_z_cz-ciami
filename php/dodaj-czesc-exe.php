@@ -26,8 +26,11 @@ if(isset($_POST['nazwa'])){
         $result=$mysqli->real_query($sql);
 
         if($result){
-            header('location: index.php?kom=1');
-            exit;
+            ?>
+            <div class="alert alert-danger" role="success">
+                Zadanie wykonano pomyślnie.
+            </div>
+            <?php
         }else{
             ?>
             <div class="alert alert-danger" role="alert">
