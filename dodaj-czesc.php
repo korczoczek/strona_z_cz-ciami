@@ -10,17 +10,20 @@
 </head>
 <body>
 <div class="container">
-    <form>
+    <form action="" method="post" id="addPizza" name="addPizza">
         <div class="row">
             <div class="col">
-            <input type="text" class="form-control" placeholder="Nazwa">
+            <input type="text" class="form-control" placeholder="Nazwa" id="nazwa" name="nazwa">
             </div>
             <div class="col">
-            <input type="text" class="form-control" placeholder="Cena (zł)">
+            <input type="text" class="form-control" placeholder="Cena (zł)" id="cena" name="cena">
             </div>
             <div class="col">
-            <input type="text" class="form-control" placeholder="Ilość">
+            <input type="text" class="form-control" placeholder="Ilość" id="ilosc" name="ilosc">
             </div>
+        </div>
+        <div class="row">
+            
         </div>
     </form>
     </div>
