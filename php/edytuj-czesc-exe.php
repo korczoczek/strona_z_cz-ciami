@@ -14,7 +14,7 @@ if(isset($_POST['nazwa'])){
         //TODO dodawanie zdjęcia
         //zapis pliki do dysku, konwersja na JPG,tworzenie miniatury,
         $sciezka='';
-
+        //ok
         //wywoływanie procedury
         $sql = "CALL edytujCzesc(
             ".$post['id'].",
