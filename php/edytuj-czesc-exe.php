@@ -16,14 +16,15 @@ if(isset($_POST['nazwa'])){
         $sciezka='';
 
         //wywoływanie procedury
-        $sql = "CALL dodajCzesc(
+        $sql = "CALL edytujCzesc(
+            ".$post['id'].",
             '".$post['nazwa']."',
             ".$post['cena'].",
             '',
             '".$post['opis']."',
             ".$post['ilosc'].",
             '".$post['producent']."',
-            '".$post['kodProducenta']."');";
+            '".$post['model']."');";
         $result=$mysqli->real_query($sql);
 
         if($result){
