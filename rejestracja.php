@@ -2,6 +2,10 @@
 <html lang="pl">
 <head>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<?php
+    include('php/database-connect.php');
+    //include('php/header.php');
+?>
 <title>Rejestracja</title>
 <style>
 body{
@@ -12,12 +16,15 @@ body{
 <body>
 <div class="container" style="margin-top:30px">
 <div class="col-md-10 col-md-offset-1">
+<?php
+	include('php/rejestracja-exe.php')
+?>
     <div class="panel panel-default">
   <div class="panel-heading"><h3 class="panel-title">Zarejestruj się</h3>
 	</div>
   
   <div class="panel-body">
-   <form role="form">
+   <form role="form" action="" method="post">
             <div class="row">
     			<div class="col-xs-12 col-sm-4 col-md-4">
 					<div class="form-group">
@@ -59,5 +66,9 @@ body{
 </div>
 </div>
 </div>
+<?php
+include('php/footer.php');
+include('php/database-disconnect.php');
+?>
 </body>
 </html>
