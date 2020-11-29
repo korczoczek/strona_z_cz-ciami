@@ -6,7 +6,7 @@ if(isset($_POST['login'])){
     $post['email'] = $mysqli->real_escape_string($post['email']);
     $post['imie'] = $mysqli->real_escape_string($post['imie']);
     $post['nazwisko'] = $mysqli->real_escape_string($post['nazwisko']);
-    var_dump($haslo);
+    //var_dump($haslo);
 
     $sql="CALL rejestracja(
         '".$post['login']."',
