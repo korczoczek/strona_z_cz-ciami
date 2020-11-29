@@ -3,7 +3,7 @@ if(isset($_POST['nazwa'])){
     $post = $_POST;
 
     if(!empty($post['nazwa'])){
-        $post['id'] =  $mysqli->real_escape_string($post['id']);
+        //$post['id'] =  $mysqli->real_escape_string($post['id']);
         $post['nazwa'] = $mysqli->real_escape_string($post['nazwa']);
         $post['cena'] = $mysqli->real_escape_string($post['cena']);
         $post['ilosc'] = $mysqli->real_escape_string($post['ilosc']);
