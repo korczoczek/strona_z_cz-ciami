@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+<meta charset="utf-8">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <?php
     include('php/database-connect.php');
-    //include('php/header.php');
+    include('php/header.php');
 ?>
 <title>Rejestracja</title>
-<style>
-body{
-	margin-top:15%;
-}
-</style>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <div class="container" style="margin-top:30px">
@@ -26,19 +25,14 @@ body{
   <div class="panel-body">
    <form role="form" action="" method="post">
             <div class="row">
-    			<div class="col-xs-12 col-sm-4 col-md-4">
+    			<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
                         <input type="text" name="imie" id="imie" class="form-control" placeholder="Imię" tabindex="1">
 					</div>
 				</div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="col-xs-12 col-sm-6 col-md-6">
     				<div class="form-group">
                         <input type="text" name="nazwisko" id="nazwisko" class="form-control" placeholder="Nazwisko" tabindex="1">
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
-					<div class="form-group">
-						<input type="text" name="kod-pocztowy" id="kod-pocztowy" class="form-control " placeholder="Kod pocztowy" tabindex="2">
 					</div>
 				</div>
 			</div>
