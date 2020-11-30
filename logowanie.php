@@ -13,7 +13,8 @@
     <div class="row">
 		<div class="col-md-4 col-md-offset-4">
 		<?php
-			include('php/login-exe.php')
+			include('php/login-exe.php');
+			include('php/baner.php');
 		?>
     		<div class="panel panel-default">
 			  	<div class="panel-heading">

@@ -1,44 +1,51 @@
 <?php
-
-if(isset($_POST['login'])){
-    $post=$_POST;
-    $haslo = md5($post['haslo']);
-    $login = $mysqli->real_escape_string($post['login']);
-    $email = $mysqli->real_escape_string($post['email']);
-    $imie = $mysqli->real_escape_string($post['imie']);
-    $nazwisko = $mysqli->real_escape_string($post['nazwisko']);
-    $imie=mb_strtolower($imie,'UTF-8');
-    $nazwisko=mb_strtolower($nazwisko,'UTF-8');
-    $login=mb_strtolower($login,'UTF-8');
-    $email=mb_strtolower($email,'UTF-8');
-    //var_dump($haslo);
-
-    $sql="CALL rejestracja(
+include('database-connect.php');
+if(!(empty($_POST['login'])||
+empty($_POST['email'])||
+empty($_POST['imie'])||
+empty($_POST['nazwisko'])||
+empty($_POST['haslo']))){
+    if($_POST['haslo']==$_POST['potwierdz-haslo']){
+        $post=$_POST;
+        $haslo = md5($post['haslo']);
+        $login = $mysqli->real_escape_string($post['login']);
+        $email = $mysqli->real_escape_string($post['email']);
+        $imie = $mysqli->real_escape_string($post['imie']);
+        $nazwisko = $mysqli->real_escape_string($post['nazwisko']);
+        $imie=mb_strtolower($imie,'UTF-8');
+        $nazwisko=mb_strtolower($nazwisko,'UTF-8');
+        $login=mb_strtolower($login,'UTF-8');
+        $email=mb_strtolower($email,'UTF-8');
+        //var_dump($haslo);
+        //sprawdzanie duplikatów
+        $sql="SELECT count(login) login,count(email) email from login
+        where login='".$login."' or email='".$email."';";
+        $result=$mysqli->query($sql);
+        $check=$result->fetch_assoc();
+        if($check['login']+$check['email']!=0){
+            $url="../rejestracja.php?duplicate=1";
+        }else{
+        //rejestracja użytkowników
+        $sql="CALL rejestracja(
         '".$login."',
         '".$haslo."',
         '".$email."',
         '".$imie."',
         '".$nazwisko."')";
-    $result=$mysqli->real_query($sql);
-    //echo mysqli_error($mysqli);
-    if($result){
-        ?>
-        <div class="alert alert-success" role="success">
-            Zadanie wykonano pomyślnie.
-        </div>
-        <?php
+        $result=$mysqli->real_query($sql);
+        //echo mysqli_error($mysqli);
+        if($result){
+            $url="../logowanie.php?rejestracja=1";
+        }else{
+            $url="../rejestracja.php?success=0";
+        }
+    }
     }else{
-        ?>
-        <div class="alert alert-danger" role="alert">
-            Wystąpił problem z zapisem danych. Proszę spróbować później.
-        </div>
-        <?php
+        $url="../rejestracja.php?bladhasla=1";
     }
 }else{
-    ?>
-        <div class="alert alert-danger" role="alert">
-            Proszę wypełnić wszystkie pola.
-        </div>
-        <?php
+    $url="../rejestracja.php?notall=1";
 }
+include('database-disconnect.php');
+header('Location: '.$url);
 ?>
