@@ -18,7 +18,7 @@
 	</div>
   
   <div class="panel-body">
-   <form role="form" action="" method="post">
+   <form role="form" action="" method="post" autocomplete="off">
             <div class="row">
     			<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
@@ -30,9 +30,17 @@
                         <input type="text" name="nazwisko" id="nazwisko" class="form-control" placeholder="Nazwisko" tabindex="1">
 					</div>
 				</div>
+<<<<<<< HEAD
+				<!--div class="col-xs-12 col-sm-4 col-md-4">
+					<div class="form-group">
+						<input type="text" name="kod-pocztowy" id="kod-pocztowy" class="form-control " placeholder="Kod pocztowy" tabindex="2">
+					</div>
+				</div-->
+=======
+>>>>>>> a24030518f4ed9e4ed76c48230f8de3dabad6dc6
 			</div>
 			<div class="form-group">
-				<input type="text" name="numer-telefonu" id="numer-telefonu" class="form-control " placeholder="Numer telefonu" tabindex="3">
+				<input type="text" name="login" id="login" class="form-control " placeholder="Login" tabindex="3">
 			</div>
 			<div class="form-group">
 				<input type="email" name="email" id="email" class="form-control " placeholder="E-mail" tabindex="4">
