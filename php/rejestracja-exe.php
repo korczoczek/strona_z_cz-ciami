@@ -1,27 +1,29 @@
 <?php
+
 if(isset($_POST['login'])){
     $post=$_POST;
     $haslo = md5($post['haslo']);
-    $post['imie']=mb_strtolower($post['imie'],'UTF-8');
-    $post['nazwisko']=mb_strtolower($post['nazwisko'],'UTF-8');
-    $post['login'] = $mysqli->real_escape_string($post['login']);
-    $post['email'] = $mysqli->real_escape_string($post['email']);
-    $post['imie'] = $mysqli->real_escape_string($post['imie']);
-    $post['nazwisko'] = $mysqli->real_escape_string($post['nazwisko']);
+    $login = $mysqli->real_escape_string($post['login']);
+    $email = $mysqli->real_escape_string($post['email']);
+    $imie = $mysqli->real_escape_string($post['imie']);
+    $nazwisko = $mysqli->real_escape_string($post['nazwisko']);
+    $imie=mb_strtolower($imie,'UTF-8');
+    $nazwisko=mb_strtolower($nazwisko,'UTF-8');
+    $login=mb_strtolower($login,'UTF-8');
+    $email=mb_strtolower($email,'UTF-8');
     //var_dump($haslo);
 
     $sql="CALL rejestracja(
-        '".$post['login']."',
+        '".$login."',
         '".$haslo."',
-        '".$post['email']."',
-        '".$post['imie']."',
-        '".$post['nazwisko']."',
-    )";
+        '".$email."',
+        '".$imie."',
+        '".$nazwisko."')";
     $result=$mysqli->real_query($sql);
-
+    //echo mysqli_error($mysqli);
     if($result){
         ?>
-        <div class="alert alert-danger" role="success">
+        <div class="alert alert-success" role="success">
             Zadanie wykonano pomyślnie.
         </div>
         <?php
@@ -32,5 +34,11 @@ if(isset($_POST['login'])){
         </div>
         <?php
     }
+}else{
+    ?>
+        <div class="alert alert-danger" role="alert">
+            Proszę wypełnić wszystkie pola.
+        </div>
+        <?php
 }
 ?>
