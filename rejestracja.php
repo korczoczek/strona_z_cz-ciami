@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="utf-8">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <?php
     include('php/database-connect.php');
     include('php/header.php');
 ?>
 <title>Rejestracja</title>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link href="css/style.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <div class="container" style="margin-top:30px">
