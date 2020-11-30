@@ -1,6 +1,8 @@
 <?php
     if(isset($result)){
-        $result->free();
+        if(!(gettype($result)=="boolean")){
+            $result->free();
+        }
     }
     $mysqli->close();
     ?>
