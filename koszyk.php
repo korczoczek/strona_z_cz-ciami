@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+<?php
+    include('php/database-connect.php');
+    include('php/header.php');
+?>
 <meta charset="utf-8">
 <title>Koszyk</title>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<style>
-body{
-	margin-top:15%;
-}
-.usun{
-	background-color:white;
-}
-</style>
+<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -31,7 +28,7 @@ body{
 
                 <div class="row">
                     <div class="col-xs-2 col-md-2">
-                        <img class="img-responsive" src="photos/amortyzator-tyl-prawy.jpg" alt="prewiew">
+                        <!--<img class="img-responsive" src="photos/amortyzator-tyl-prawy.jpg" alt="prewiew">-->
                     </div>
                     <div class="col-xs-4 col-md-6">
                         <h4 class="nazwa-produktu"><strong>Nazwa produktu</strong></h4><h4><small>Opis produktu</small></h4>
@@ -44,7 +41,8 @@ body{
                             <input type="text" class="form-control input-sm" value="1">
                         </div>
                         <div class="col-xs-2 col-md-2">
-                            <button type="button" class="btn btn-outline-danger btn-xs">
+                            <button type="button" class="btn btn-outline-danger btn-xs"
+							id="button">
                               <img class="usun" src="photos/usuwanie.png">  
                             </button>
                         </div>
@@ -53,7 +51,7 @@ body{
                 <hr>
                 <div class="row">
                     <div class="col-xs-2 col-md-2">
-                        <img class="img-responsive" src="photos/skrzynia-biegow.jpg" alt="preview">
+                        <!--<img class="img-responsive" src="photos/skrzynia-biegow.jpg" alt="preview">-->
                     </div>
                     <div class="col-xs-4 col-md-6">
                         <h4 class="nazwa-produktu"><strong>Nazwa produktu</strong></h4><h4><small>Opis produktu</small></h4>
@@ -66,7 +64,7 @@ body{
                             <input type="text" class="form-control input-sm" value="1">
                         </div>
                         <div class="col-xs-2 col-md-2">
-                            <button type="button" class="btn btn-outline-danger btn-xs">
+                            <button type="button" class="btn btn-outline-danger btn-xs" id="button">
                                 <img class="usun" src="photos/usuwanie.png">
                             </button>
                         </div>
@@ -78,9 +76,9 @@ body{
                     <a href="{{route("product.home")}}" class="btn btn-outline-secondary pull-right">Aktualizuj koszyk</a>
                 </div>
             
-            <div class="card-footer">
+            <div class="card-footer" style="padding-bottom:50px;">
                 <a href="{{route("product.home")}}" class="btn btn-success pull-right">Płać</a>
-                <div class="pull-right" style="margin: 5px">
+                <div class="pull-right" style="margin: 7.5px">
                     Cena całkowita: <b>8690.00zł</b>
 					</fieldset>
                 </div>
@@ -91,5 +89,9 @@ body{
 
         </div>
 </div>
-
+<?php
+    include('php/database-connect.php');
+    include('php/header.php');
+?>
+</body>
 </html>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+<?php
+    include('php/database-connect.php');
+    include('php/header.php');
+?>
 <meta charset="utf-8">
 <title>Logowanie</title>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<style>
-body{
-	margin-top:15%;
-}
-</style>
+<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -40,5 +40,9 @@ body{
 		</div>
 	</div>
 </div>
+<?php
+    include('php/database-connect.php');
+    include('php/header.php');
+?>
 </body>
 </html>
