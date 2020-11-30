@@ -19,28 +19,30 @@
 			  	<div class="panel-body">
 			    	<form accept-charset="UTF-8" role="form">
                     <fieldset>
-						<div class="form-group">
+						<!--div class="form-group">
 							<h4 class="nazwa-produktu"><small>Wprowadź nazwę produktu, który chcesz edytować:</small></h4>
 			    		    <input class="form-control" placeholder="nazwa" name="nazwa-produktu" type="text">
 			    		</div>
 						<div class="form-group">
 			    		    <input name="zdjecie-produktu" type="file">
-			    		</div>
+			    		</div-->
 			    	  	<div class="form-group">
-			    		    <input class="form-control" placeholder="nowa nazwa" name="nazwa-produktu" type="text">
+			    		    <input class="form-control" placeholder="Nazwa" name="nazwa-produktu" type="text">
 			    		</div>
 			    		<div class="form-group">
-			    			<input class="form-control" placeholder="cena" name="cena-produktu" type="number" value="">
-			    		</div>
-			    		
-						<div class="form-group">
-			    		    <input class="form-control" placeholder="ilość" name="ilosc-produktu" type="number">
+			    			<input class="form-control" placeholder="Cena" name="cena-produktu" type="number" value="">
 			    		</div>
 						<div class="form-group">
-			    		    <input class="form-control" placeholder="producent" name="producent-produktu" type="text">
+			    		    <input class="form-control" placeholder="Ilość" name="ilosc-produktu" type="number">
 			    		</div>
 						<div class="form-group">
-			    		    <input class="form-control" placeholder="model" name="model-produktu" type="text">
+			    		    <textarea class="form-control" placeholder="Opis" name="opis" type="text"></textarea>
+			    		</div>
+						<div class="form-group">
+			    		    <input class="form-control" placeholder="Producent" name="producent-produktu" type="text">
+			    		</div>
+						<div class="form-group">
+			    		    <input class="form-control" placeholder="Model" name="model-produktu" type="text">
 			    		</div>
 						<input class="btn btn-lg btn-success btn-block" type="submit" value="Edytuj">
 			    	</fieldset>

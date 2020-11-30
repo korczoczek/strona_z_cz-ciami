@@ -3,13 +3,12 @@ if(isset($_POST['nazwa'])){
     $post = $_POST;
 
     if(!empty($post['nazwa'])){
-        //$post['id'] =  $mysqli->real_escape_string($post['id']);
-        $post['nazwa'] = $mysqli->real_escape_string($post['nazwa']);
-        $post['cena'] = $mysqli->real_escape_string($post['cena']);
-        $post['ilosc'] = $mysqli->real_escape_string($post['ilosc']);
-        $post['opis'] = $mysqli->real_escape_string($post['opis']);
-        $post['producent'] = $mysqli->real_escape_string($post['producent']);
-        $post['kodProducenta'] = $mysqli->real_escape_string($post['kodProducenta']);
+        $nazwa = $mysqli->real_escape_string($post['nazwa']);
+        $cena = $mysqli->real_escape_string($post['cena']);
+        $ilosc = $mysqli->real_escape_string($post['ilosc']);
+        $opis = $mysqli->real_escape_string($post['opis']);
+        $producent = $mysqli->real_escape_string($post['producent']);
+        $model = $mysqli->real_escape_string($post['model']);
         
         //TODO dodawanie zdjęcia
         //zapis pliki do dysku, konwersja na JPG,tworzenie miniatury,
@@ -17,14 +16,14 @@ if(isset($_POST['nazwa'])){
         //ok
         //wywoływanie procedury
         $sql = "CALL edytujCzesc(
-            ".$post['id'].",
-            '".$post['nazwa']."',
-            ".$post['cena'].",
+            ".$id.",
+            '".$nazwa."',
+            ".$cena.",
             '',
-            '".$post['opis']."',
-            ".$post['ilosc'].",
-            '".$post['producent']."',
-            '".$post['model']."');";
+            '".$opis."',
+            ".$ilosc.",
+            '".$producent."',
+            '".$model."');";
         $result=$mysqli->real_query($sql);
 
         if($result){
