@@ -12,6 +12,9 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
+        <?php
+        include('php/baner.php')
+        ?>
             <table class="table">
                 <tbody>
 <?php

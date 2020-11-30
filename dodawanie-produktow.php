@@ -25,23 +25,23 @@
 			    		    <input name="zdjecie-produktu" type="file">
 			    		</div-->
 			    	  	<div class="form-group">
-			    		    <input class="form-control" placeholder="nazwa" name="nazwa" type="text">
+			    		    <input class="form-control" placeholder="Nazwa" name="nazwa" type="text">
 			    		</div>
 			    		<div class="form-group">
-			    			<input class="form-control" placeholder="cena" name="cena" type="number" value="">
+			    			<input class="form-control" placeholder="Cena" name="cena" type="number" value="">
 			    		</div>
 			    		
 						<div class="form-group">
-			    		    <input class="form-control" placeholder="ilość" name="ilosc" type="number">
+			    		    <input class="form-control" placeholder="Ilość" name="ilosc" type="number">
 			    		</div>
 						<div class="form-group">
-			    		    <textarea class="form-control" placeholder="opis" name="opis" type="text"></textarea>
+			    		    <textarea class="form-control" placeholder="Opis" name="opis" type="text"></textarea>
 			    		</div>
 						<div class="form-group">
-			    		    <input class="form-control" placeholder="producent" name="producent" type="text">
+			    		    <input class="form-control" placeholder="Producent" name="producent" type="text">
 			    		</div>
 						<div class="form-group">
-			    		    <input class="form-control" placeholder="model" name="model" type="text">
+			    		    <input class="form-control" placeholder="Model" name="model" type="text">
 			    		</div>
 						<input class="btn btn-lg btn-success btn-block" type="submit" value="Dodaj">
 			    	</fieldset>
