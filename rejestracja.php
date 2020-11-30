@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+<meta charset="utf-8">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <?php
     include('php/database-connect.php');
     include('php/header.php');
 ?>
-<meta charset="utf-8">
 <title>Rejestracja</title>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="css/style.css" rel="stylesheet">
@@ -14,12 +15,15 @@
 <body>
 <div class="container" style="margin-top:30px">
 <div class="col-md-10 col-md-offset-1">
+<?php
+	include('php/rejestracja-exe.php')
+?>
     <div class="panel panel-default">
   <div class="panel-heading"><h3 class="panel-title">Zarejestruj się</h3>
 	</div>
   
   <div class="panel-body">
-   <form role="form">
+   <form role="form" action="" method="post">
             <div class="row">
     			<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
@@ -57,8 +61,8 @@
 </div>
 </div>
 <?php
-    include('php/database-connect.php');
-    include('php/header.php');
+include('php/footer.php');
+include('php/database-disconnect.php');
 ?>
 </body>
 </html>
