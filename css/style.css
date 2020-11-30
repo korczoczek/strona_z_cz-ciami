@@ -1,3 +1,28 @@
-body {
-    background-color: black;
+body{
+	margin-top:15%;
+}
+/*.container{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type=number]{
+	-moz-appearance: textfield;
+}
+img {
+	border: 0px !important;
+	outline: 0 !important;
+}
+#button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
 }
