@@ -7,8 +7,6 @@
 ?>
 <meta charset="utf-8">
 <title>Logowanie</title>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -41,8 +39,8 @@
 	</div>
 </div>
 <?php
-    include('php/database-connect.php');
-    include('php/header.php');
+    include('php/database-disconnect.php');
+    include('php/footer.php');
 ?>
 </body>
 </html>
