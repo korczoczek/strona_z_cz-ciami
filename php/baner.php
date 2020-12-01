@@ -40,4 +40,11 @@ if(isset($_GET['success'])){
         </div>
         <?php
     }
+    if(isset($_GET['zlehaslo'])){
+        ?>
+        <div class="alert alert-danger" role="alert">
+            Podany login i/lub E-mail jest już w użytku.
+        </div>
+        <?php
+    }
 ?>
