@@ -4,7 +4,8 @@
 <?php
     include('php/database-connect.php');
     include('php/header.php');
-    include('php/sesja.php');
+	include('php/sesja.php');
+	include('php/admin-security.php');
 ?>
 <title>Dodawanie produktu</title>
 </head>
