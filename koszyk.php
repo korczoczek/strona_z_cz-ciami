@@ -28,11 +28,11 @@
     $sql="SELECT id from zamowienia
     where id_klient=".$user_id." and koszyk=1;";
     $result = $mysqli->query($sql);
-    var_dump($result);
+    //var_dump($result);
     if($result){
     $dane=$result->fetch_assoc();
-    echo "||";
-    var_dump($dane);
+    //echo "||";
+    //var_dump($dane);
     $zamowienie=$dane['id'];
     $sql="SELECT * FROM koszykifull
     WHERE id=".$zamowienie.";";
@@ -45,7 +45,7 @@
         </div>
         <div class=\"col-xs-6 col-md-4 row\">
             <div class=\"col-xs-6 col-md-6 text-right\" style=\"padding-top: 5px\">
-                <h6><strong>".$dane['cena']."<span class=\"text-muted\">x</span></strong></h6>
+                <h6><strong>".$dane['cena']." zł<span class=\"text-muted\"> x </span></strong></h6>
             </div>
             <div class=\"col-xs-4 col-md-4\">
                 <input type=\"text\" class=\"form-control input-sm\" value=\"".$dane['ilosc']."\">
@@ -66,9 +66,19 @@
                 </div>
             
             <div class="card-footer" style="padding-bottom:50px;">
-                <a href="{{route("product.home")}}" class="btn btn-success pull-right">Płać</a>
+                <a href="" class="btn btn-success pull-right">Płać</a>
                 <div class="pull-right" style="margin: 7.5px">
-                    Cena całkowita: <b>8690.00zł</b>
+                    Cena całkowita: <b>
+                    <?php
+                        $sql="SELECT suma from koszykisuma
+                        where id=".$zamowienie.";";
+                        $result = $mysqli->query($sql);
+                        if($result){
+                            $suma=$result->fetch_assoc();
+                            echo $suma['suma']." zł";
+                        }
+                    ?>
+                    </b>
 					</fieldset>
                 </div>
 				
