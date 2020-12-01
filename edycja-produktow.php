@@ -5,6 +5,7 @@
 <?php
     include('php/database-connect.php');
     include('php/header.php');
+    include('php/sesja.php');
 ?>
 <title>Edycja produktu</title>
 </head>

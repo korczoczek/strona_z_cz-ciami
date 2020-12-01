@@ -4,12 +4,10 @@
 <?php
     include('php/database-connect.php');
     include('php/header.php');
+    include('php/sesja.php');
 ?>
 <meta charset="utf-8">
 <title>Koszyk</title>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -21,57 +19,42 @@
 			    	<h3 class="panel-title">Koszyk</h3>
 			 	</div>
 				
-                <a href="{{route("product.home")}}" class="btn btn-outline-info btn-sm pull-right">Kontynuuj zakupy</a>
+                <a href="index.php" class="btn btn-outline-info btn-sm pull-right">Kontynuuj zakupy</a>
                 <div class="clearfix"></div>
             <fieldset>
             <div class="card-body">
-
-                <div class="row">
-                    <div class="col-xs-2 col-md-2">
-                        <!--<img class="img-responsive" src="photos/amortyzator-tyl-prawy.jpg" alt="prewiew">-->
-                    </div>
-                    <div class="col-xs-4 col-md-6">
-                        <h4 class="nazwa-produktu"><strong>Nazwa produktu</strong></h4><h4><small>Opis produktu</small></h4>
-                    </div>
-                    <div class="col-xs-6 col-md-4 row">
-                        <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
-                            <h6><strong>5900.00 <span class="text-muted">x</span></strong></h6>
-                        </div>
-                        <div class="col-xs-4 col-md-4">
-                            <input type="text" class="form-control input-sm" value="1">
-                        </div>
-                        <div class="col-xs-2 col-md-2">
-                            <button type="button" class="btn btn-outline-danger btn-xs"
-							id="button">
-                              <img class="usun" src="photos/usuwanie.png">  
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-xs-2 col-md-2">
-                        <!--<img class="img-responsive" src="photos/skrzynia-biegow.jpg" alt="preview">-->
-                    </div>
-                    <div class="col-xs-4 col-md-6">
-                        <h4 class="nazwa-produktu"><strong>Nazwa produktu</strong></h4><h4><small>Opis produktu</small></h4>
-                    </div>
-                    <div class="col-xs-6 col-md-4 row">
-                        <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
-                            <h6><strong>2790.00 <span class="text-muted">x</span></strong></h6>
-                        </div>
-                        <div class="col-xs-4 col-md-4">
-                            <input type="text" class="form-control input-sm" value="1">
-                        </div>
-                        <div class="col-xs-2 col-md-2">
-                            <button type="button" class="btn btn-outline-danger btn-xs" id="button">
-                                <img class="usun" src="photos/usuwanie.png">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <hr>
+<?php
+    $sql="SELECT id from zamowienia
+    where id_klient=".$user_id." and koszyk=1;";
+    $result = $mysqli->query($sql);
+    $dane=$result->fetch_assoc();
+    $zamowienie=$dane['id'];
+    $sql="SELECT * FROM koszykifull
+    WHERE id=".$zamowienie.";";
+    $result = $mysqli->query($sql);
+    while($dane=$result->fetch_assoc()){
+        echo "<div class=\"row\">
+        <div class=\"col-xs-6 col-md-8\">
+            <h4 class=\"nazwa-produktu\"><strong>".$dane['nazwa']."</strong></h4><h4><small>".$dane['opis']."</small></h4>
+        </div>
+        <div class=\"col-xs-6 col-md-4 row\">
+            <div class=\"col-xs-6 col-md-6 text-right\" style=\"padding-top: 5px\">
+                <h6><strong>".$dane['cena']."<span class=\"text-muted\">x</span></strong></h6>
+            </div>
+            <div class=\"col-xs-4 col-md-4\">
+                <input type=\"text\" class=\"form-control input-sm\" value=\"".$dane['ilosc']."\">
+            </div>
+            <div class=\"col-xs-2 col-md-2\">
+                <button type=\"button\" class=\"btn btn-outline-danger btn-xs\"
+                id=\"button\">
+                  <img class=\"usun\" src=\"photos/usuwanie.png\">  
+                </button>
+            </div>
+        </div>
+    </div>
+    <hr>";
+    }
+?>
                 <div class="pull-right">
                     <a href="{{route("product.home")}}" class="btn btn-outline-secondary pull-right">Aktualizuj koszyk</a>
                 </div>
@@ -90,8 +73,8 @@
         </div>
 </div>
 <?php
-    include('php/database-connect.php');
-    include('php/header.php');
+    include('php/footer.php');
+    include('php/database-disconnect.php');
 ?>
 </body>
 </html>
