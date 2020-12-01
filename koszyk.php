@@ -5,6 +5,7 @@
     include('php/database-connect.php');
     include('php/header.php');
     include('php/sesja.php');
+    include('php/security.php');
 ?>
 <meta charset="utf-8">
 <title>Koszyk</title>
@@ -12,7 +13,7 @@
 <body>
 <div class="container">
     <div class="card">
-            <div class="card-header bg-dark text-light">
+            <div class="card-header bg-dark">
                 
 				<div class="panel panel-default">
                 <div class="panel-heading">
@@ -27,15 +28,20 @@
     $sql="SELECT id from zamowienia
     where id_klient=".$user_id." and koszyk=1;";
     $result = $mysqli->query($sql);
+    var_dump($result);
+    if($result){
     $dane=$result->fetch_assoc();
+    echo "||";
+    var_dump($dane);
     $zamowienie=$dane['id'];
     $sql="SELECT * FROM koszykifull
     WHERE id=".$zamowienie.";";
     $result = $mysqli->query($sql);
+    if($result){
     while($dane=$result->fetch_assoc()){
         echo "<div class=\"row\">
         <div class=\"col-xs-6 col-md-8\">
-            <h4 class=\"nazwa-produktu\"><strong>".$dane['nazwa']."</strong></h4><h4><small>".$dane['opis']."</small></h4>
+            <h4 class=\"nazwa-produktu\"><strong>".$dane['nazwa']."</strong></h4><h4><small>".$dane['model'].", ".$dane['producent']."</small></h4>
         </div>
         <div class=\"col-xs-6 col-md-4 row\">
             <div class=\"col-xs-6 col-md-6 text-right\" style=\"padding-top: 5px\">
@@ -53,7 +59,7 @@
         </div>
     </div>
     <hr>";
-    }
+    }}}
 ?>
                 <div class="pull-right">
                     <a href="{{route("product.home")}}" class="btn btn-outline-secondary pull-right">Aktualizuj koszyk</a>
