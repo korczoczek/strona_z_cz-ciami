@@ -1,7 +1,7 @@
 <?php
 include('security.php');
 if(empty($admin)){
-    header("Location: index.php");
+    header("Location: logowanie.php");
     //var_dump($admin);
 }
 ?>

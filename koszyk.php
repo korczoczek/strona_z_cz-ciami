@@ -12,6 +12,9 @@
 </head>
 <body>
 <div class="container">
+<?php
+include('php/baner.php');
+?>
     <div class="card">
             <div class="card-header bg-dark">
                 
@@ -29,7 +32,7 @@
     where id_klient=".$user_id." and koszyk=1;";
     $result = $mysqli->query($sql);
     //var_dump($result);
-    if($result){
+    if($result){ 
     $dane=$result->fetch_assoc();
     //echo "||";
     //var_dump($dane);
@@ -38,6 +41,7 @@
     WHERE id=".$zamowienie.";";
     $result = $mysqli->query($sql);
     if($result){
+    echo "<form name=\"koszyk\" id=\"koszyk\" method=\"post\" action=\"php/aktualizuj-koszyk-exe.php\">";
     while($dane=$result->fetch_assoc()){
         echo "<div class=\"row\">
         <div class=\"col-xs-6 col-md-8\">
@@ -48,25 +52,28 @@
                 <h6><strong>".$dane['cena']." zł<span class=\"text-muted\"> x </span></strong></h6>
             </div>
             <div class=\"col-xs-4 col-md-4\">
-                <input type=\"text\" class=\"form-control input-sm\" value=\"".$dane['ilosc']."\">
+                <input type=\"text\" class=\"form-control input-sm\" name=\"".$dane['produkt']."\" value=\"".$dane['ilosc']."\">
             </div>
             <div class=\"col-xs-2 col-md-2\">
+            <a href=\"php/usun-z-koszyka-exe.php?produkt=".$dane['produkt']."\">
                 <button type=\"button\" class=\"btn btn-outline-danger btn-xs\"
                 id=\"button\">
                   <img class=\"usun\" src=\"photos/usuwanie.png\">  
-                </button>
+                </button></a>
             </div>
         </div>
     </div>
     <hr>";
-    }}}
+    }
+    echo "</form>";
+}}
 ?>
                 <div class="pull-right">
-                    <a href="{{route("product.home")}}" class="btn btn-outline-secondary pull-right">Aktualizuj koszyk</a>
+                    <button type="submit" form="koszyk" class="btn btn-outline-secondary pull-right">Aktualizuj koszyk</button>
                 </div>
             
             <div class="card-footer" style="padding-bottom:50px;">
-                <a href="" class="btn btn-success pull-right">Płać</a>
+                <a href="koszyk.php" class="btn btn-success pull-right">Płać</a>
                 <div class="pull-right" style="margin: 7.5px">
                     Cena całkowita: <b>
                     <?php
