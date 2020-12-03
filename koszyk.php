@@ -10,6 +10,7 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link href="css/style.css" rel="stylesheet">
+<link href="css/style1.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
