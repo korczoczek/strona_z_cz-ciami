@@ -11,6 +11,9 @@
 </head>
 <body>
 <div class="container">
+<?php
+include('php/navbar.php');
+?>
     <div class="row">
         <div class="col-12">
         <?php
@@ -21,6 +24,36 @@
 <?php
     $sql = "SELECT * FROM czesci ORDER BY id;";
     $result = $mysqli->query($sql);
+    if(isset($user_id)&&$admin==1){
+        while($czesci=$result->fetch_assoc()){
+            echo "
+            <tr>
+            <td>".$czesci['zdjecie']."</td>
+            <td>".$czesci['nazwa']."</td>
+            <td>".$czesci['cena']." zł</td>
+            <td>".$czesci['ilosc']."</td>
+            <td>".$czesci['producent']."</td>
+            <td>".$czesci['model']."</td>
+            <td><a href=\"php/dodaj-do-koszyka-exe.php?produkt=".$czesci['id']."\"><button type=\"button\" class=\"btn btn-primary\">Dodaj do Koszyka</button></a></td>
+            <td><a href=\"edycja-produktow.php?produkt=".$czesci['id']."\"><button type=\"button\" class=\"btn btn-primary\">Edytuj</button></a></td>
+            </tr>
+            ";
+        }
+    }elseif(isset($user_id)&&$admin==0){
+        while($czesci=$result->fetch_assoc()){
+            echo "
+            <tr>
+            <td>".$czesci['zdjecie']."</td>
+            <td>".$czesci['nazwa']."</td>
+            <td>".$czesci['cena']." zł</td>
+            <td>".$czesci['ilosc']."</td>
+            <td>".$czesci['producent']."</td>
+            <td>".$czesci['model']."</td>
+            <td><a href=\"php/dodaj-do-koszyka-exe.php?produkt=".$czesci['id']."\"><button type=\"button\" class=\"btn btn-primary\">Dodaj do Koszyka</button></a></td>
+            </tr>
+            ";
+        }
+    }else{
     while($czesci=$result->fetch_assoc()){
         echo "
         <tr>
@@ -32,6 +65,7 @@
         <td>".$czesci['model']."</td>
         </tr>
         ";
+    }
     }
 ?>
                 </tbody>
