@@ -11,14 +11,14 @@
 <div class="container" style="margin-top:30px">
 <div class="col-md-10 col-md-offset-1">
 <?php
-	include('php/rejestracja-exe.php')
+	include('php/baner.php')
 ?>
     <div class="panel panel-default">
   <div class="panel-heading"><h3 class="panel-title">Zarejestruj się</h3>
 	</div>
   
   <div class="panel-body">
-   <form role="form" action="" method="post" autocomplete="off">
+   <form role="form" action="php/rejestracja-exe.php" method="post" autocomplete="off">
             <div class="row">
     			<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">

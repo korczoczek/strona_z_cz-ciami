@@ -4,83 +4,88 @@
 <?php
     include('php/database-connect.php');
     include('php/header.php');
+    include('php/sesja.php');
+    include('php/security.php');
 ?>
 <meta charset="utf-8">
 <title>Koszyk</title>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link href="css/style.css" rel="stylesheet">
-<link href="css/style1.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
+<?php
+include('php/baner.php');
+?>
     <div class="card">
-            <div class="card-header bg-dark text-light">
+            <div class="card-header bg-dark">
                 
 				<div class="panel panel-default">
                 <div class="panel-heading">
 			    	<h3 class="panel-title">Koszyk</h3>
 			 	</div>
 				
-                <a href="{{route("product.home")}}" class="btn btn-outline-info btn-sm pull-right">Kontynuuj zakupy</a>
+                <a href="index.php" class="btn btn-outline-info btn-sm pull-right">Kontynuuj zakupy</a>
                 <div class="clearfix"></div>
             <fieldset>
             <div class="card-body">
-
-                <div class="row">
-                    <div class="col-xs-2 col-md-2">
-                        <!--<img class="img-responsive" src="photos/amortyzator-tyl-prawy.jpg" alt="prewiew">-->
-                    </div>
-                    <div class="col-xs-4 col-md-6">
-                        <h4 class="nazwa-produktu"><strong>Nazwa produktu</strong></h4><h4><small>Opis produktu</small></h4>
-                    </div>
-                    <div class="col-xs-6 col-md-4 row">
-                        <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
-                            <h6><strong>5900.00 <span class="text-muted">x</span></strong></h6>
-                        </div>
-                        <div class="col-xs-4 col-md-4">
-                            <input type="text" class="form-control input-sm" value="1">
-                        </div>
-                        <div class="col-xs-2 col-md-2">
-                            <button type="button" class="btn btn-outline-danger btn-xs"
-							id="button">
-                              <img class="usun" src="photos/usuwanie.png">  
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-xs-2 col-md-2">
-                        <!--<img class="img-responsive" src="photos/skrzynia-biegow.jpg" alt="preview">-->
-                    </div>
-                    <div class="col-xs-4 col-md-6">
-                        <h4 class="nazwa-produktu"><strong>Nazwa produktu</strong></h4><h4><small>Opis produktu</small></h4>
-                    </div>
-                    <div class="col-xs-6 col-md-4 row">
-                        <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
-                            <h6><strong>2790.00 <span class="text-muted">x</span></strong></h6>
-                        </div>
-                        <div class="col-xs-4 col-md-4">
-                            <input type="text" class="form-control input-sm" value="1">
-                        </div>
-                        <div class="col-xs-2 col-md-2">
-                            <button type="button" class="btn btn-outline-danger btn-xs" id="button">
-                                <img class="usun" src="photos/usuwanie.png">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <hr>
+<?php
+    $sql="SELECT id from zamowienia
+    where id_klient=".$user_id." and koszyk=1;";
+    $result = $mysqli->query($sql);
+    //var_dump($result);
+    if($result){ 
+    $dane=$result->fetch_assoc();
+    //echo "||";
+    //var_dump($dane);
+    $zamowienie=$dane['id'];
+    $sql="SELECT * FROM koszykifull
+    WHERE id=".$zamowienie.";";
+    $result = $mysqli->query($sql);
+    if($result){
+    echo "<form name=\"koszyk\" id=\"koszyk\" method=\"post\" action=\"php/aktualizuj-koszyk-exe.php\">";
+    while($dane=$result->fetch_assoc()){
+        echo "<div class=\"row\">
+        <div class=\"col-xs-6 col-md-8\">
+            <h4 class=\"nazwa-produktu\"><strong>".$dane['nazwa']."</strong></h4><h4><small>".$dane['model'].", ".$dane['producent']."</small></h4>
+        </div>
+        <div class=\"col-xs-6 col-md-4 row\">
+            <div class=\"col-xs-6 col-md-6 text-right\" style=\"padding-top: 5px\">
+                <h6><strong>".$dane['cena']." zł<span class=\"text-muted\"> x </span></strong></h6>
+            </div>
+            <div class=\"col-xs-4 col-md-4\">
+                <input type=\"text\" class=\"form-control input-sm\" name=\"".$dane['produkt']."\" value=\"".$dane['ilosc']."\">
+            </div>
+            <div class=\"col-xs-2 col-md-2\">
+            <a href=\"php/usun-z-koszyka-exe.php?produkt=".$dane['produkt']."\">
+                <button type=\"button\" class=\"btn btn-outline-danger btn-xs\"
+                id=\"button\">
+                  <img class=\"usun\" src=\"photos/usuwanie.png\">  
+                </button></a>
+            </div>
+        </div>
+    </div>
+    <hr>";
+    }
+    echo "</form>";
+}}
+?>
                 <div class="pull-right">
-                    <a href="{{route("product.home")}}" class="btn btn-outline-secondary pull-right">Aktualizuj koszyk</a>
+                    <button type="submit" form="koszyk" class="btn btn-outline-secondary pull-right">Aktualizuj koszyk</button>
                 </div>
             
             <div class="card-footer" style="padding-bottom:50px;">
-                <a href="{{route("product.home")}}" class="btn btn-success pull-right">Płać</a>
+                <a href="koszyk.php" class="btn btn-success pull-right">Płać</a>
                 <div class="pull-right" style="margin: 7.5px">
-                    Cena całkowita: <b>8690.00zł</b>
+                    Cena całkowita: <b>
+                    <?php
+                        $sql="SELECT suma from koszykisuma
+                        where id=".$zamowienie.";";
+                        $result = $mysqli->query($sql);
+                        if($result){
+                            $suma=$result->fetch_assoc();
+                            echo $suma['suma']." zł";
+                        }
+                    ?>
+                    </b>
 					</fieldset>
                 </div>
 				
@@ -91,8 +96,8 @@
         </div>
 </div>
 <?php
-    include('php/database-connect.php');
-    include('php/header.php');
+    include('php/footer.php');
+    include('php/database-disconnect.php');
 ?>
 </body>
 </html>
