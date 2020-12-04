@@ -13,6 +13,9 @@
 <body>
 <div class="container">
 <?php
+include('php/navbar.php');
+?>
+<?php
 include('php/baner.php');
 ?>
     <div class="card">
