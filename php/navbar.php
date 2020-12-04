@@ -2,32 +2,53 @@
 if(isset($user_id)&&$admin==1){
   ?>
   <!--administrator-->
-  <nav>
-      <a href="index.php"><button type="button" class="btn btn-primary">Strona główna</button></a>
-      <a href="dodawanie-produktow.php"><button type="button" class="btn btn-primary">Dodaj produkt</button></a>
-      <a href="koszyk.php"><button type="button" class="btn btn-primary">Koszyk</button></a>
-      <a href=""><button type="button" class="btn btn-primary"><?php echo $login; ?></button></a>
-      <a href="php/wyloguj.php"><button type="button" class="btn btn-primary">Wyloguj</button></a>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <img id="logo-fs" class="navbar-brand" src="photos/logo2.png">
+    </div>
+    <div class="collapse navbar-collapse">
+     <div class="navbar-header">
+      <img id="logo-fs" class="navbar-brand" src="photos/logo2.png">
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="login"><!--TU MA BYC WYSWIETLANIE NAZWY UZYTKOWNIKA--><?php echo $login?></li>
+      <li><a href="dodawanie-produktow.php">Dodaj produkt</a></li>
+      <li><a href="koszyk.php">Koszyk</a></li>
+      <li><a href="php/wyloguj.php">Wyloguj</a></li>
+    </ul>
+  </div>
   </nav>
   <?php
 }elseif(isset($user_id)&&$admin==0){
 ?>
 <!--zalogowany użytkownik-->
-<nav>
-      <a href="index.php"><button type="button" class="btn btn-primary">Strona główna</button></a>
-      <a href="koszyk.php"><button type="button" class="btn btn-primary">Koszyk</button></a>
-      <a href=""><button type="button" class="btn btn-primary"><?php echo $login; ?></button></a>
-      <a href="php/wyloguj.php"><button type="button" class="btn btn-primary">Wyloguj</button></a>
-  </nav>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="collapse navbar-collapse">
+	<div class="navbar-header">
+      <img id="logo-fs" class="navbar-brand" src="photos/logo2.png">
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="login"><!--TU MA BYC WYSWIETLANIE NAZWY UZYTKOWNIKA--><?php echo $login?></li>
+      <li><a href="koszyk.php">Koszyk</a></li>
+      <li><a href="php/wyloguj.php">Wyloguj</a></li>
+    </ul>
+  </div>
+</nav>
 <?php
 }else{
 ?>
 <!--niezalogowany użytkownik-->
-<nav>
-      <a href="index.php"><button type="button" class="btn btn-primary">Strona główna</button></a>
-      <a href="logowanie.php"><button type="button" class="btn btn-primary">Logowanie</button></a>
-      <a href="rejestracja.php"><button type="button" class="btn btn-primary">Rejestracja</button></a>
-  </nav>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   <div class="navbar-header">
+      <img id="logo-fs" class="navbar-brand" src="photos/logo2.png">
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+    <li><a href="logowanie.php">Logowanie</a></li>
+    <li><a href="rejestracja.php">Rejestracja</a></li>
+    </ul>
+  </div>
+</nav>
 <?php
 }
 ?>

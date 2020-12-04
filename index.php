@@ -10,6 +10,9 @@
 <style></style>
 </head>
 <body>
+	<?php
+	include('php/navbar.php');
+	?>
 <div class="container">
 <?php
 include('php/navbar.php');
