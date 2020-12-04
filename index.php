@@ -10,6 +10,9 @@
 <style></style>
 </head>
 <body>
+	<?php
+	include('php/navbar.php');
+	?>
 <div class="container">
     <div class="row">
         <div class="col-12">
