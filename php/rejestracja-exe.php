@@ -6,12 +6,12 @@ empty($_POST['imie'])||
 empty($_POST['nazwisko'])||
 empty($_POST['haslo']))){
     if($_POST['haslo']==$_POST['potwierdz-haslo']){
-        $post=$_POST;
-        $haslo = md5($post['haslo']);
-        $login = $mysqli->real_escape_string($post['login']);
-        $email = $mysqli->real_escape_string($post['email']);
-        $imie = $mysqli->real_escape_string($post['imie']);
-        $nazwisko = $mysqli->real_escape_string($post['nazwisko']);
+        //$post=$_POST;
+        $haslo = md5($_POST['haslo']);
+        $login = $mysqli->real_escape_string($_POST['login']);
+        $email = $mysqli->real_escape_string($_POST['email']);
+        $imie = $mysqli->real_escape_string($_POST['imie']);
+        $nazwisko = $mysqli->real_escape_string($_POST['nazwisko']);
         $imie=mb_strtolower($imie,'UTF-8');
         $nazwisko=mb_strtolower($nazwisko,'UTF-8');
         $login=mb_strtolower($login,'UTF-8');

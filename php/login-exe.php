@@ -18,7 +18,7 @@ if(!(empty($_POST['login']) || empty($_POST['password']))){
         $_SESSION['user_id']=$dane['id'];
         $_SESSION['login']=$dane['login'];
         $_SESSION['admin']=$dane['admin'];
-        $url="../index.php?success=1";
+        $url="../index.php";
     }
 }elseif(!empty($_POST['login']) xor !empty($_POST['password'])){
     $url="../logowanie.php?zlehaslo=1";
