@@ -14,9 +14,6 @@
 	include('php/navbar.php');
 	?>
 <div class="container">
-<?php
-include('php/navbar.php');
-?>
     <div class="row">
         <div class="col-12">
         <?php

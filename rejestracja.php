@@ -8,10 +8,10 @@
 <title>Rejestracja</title>
 </head>
 <body>
-<div class="container" style="margin-top:30px">
 <?php
 include('php/navbar.php');
 ?>
+<div class="container" style="margin-top:30px">
 <div class="col-md-10 col-md-offset-1">
 <?php
 	include('php/baner.php')

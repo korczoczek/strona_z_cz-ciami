@@ -11,10 +11,10 @@
 <title>Koszyk</title>
 </head>
 <body>
-<div class="container">
 <?php
 include('php/navbar.php');
 ?>
+<div class="container">
 <?php
 include('php/baner.php');
 ?>
