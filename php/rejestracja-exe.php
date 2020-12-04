@@ -6,7 +6,7 @@ empty($_POST['imie'])||
 empty($_POST['nazwisko'])||
 empty($_POST['haslo']))){
     if($_POST['haslo']==$_POST['potwierdz-haslo']){
-        $post=$_POST;
+        //$post=$_POST;
         $haslo = md5($post['haslo']);
         $login = $mysqli->real_escape_string($post['login']);
         $email = $mysqli->real_escape_string($post['email']);
