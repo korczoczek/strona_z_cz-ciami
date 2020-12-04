@@ -54,5 +54,5 @@ if($result){
     }
 }
 include("database-disconnect.php");
-//header("Location: ".$url);
+header("Location: ".$url);
 ?>
